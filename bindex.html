@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Азбука Морзе</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #ff6f61;
+            margin: 0;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-top: 10px;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        button {
+            background-color: #ff6f61;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff4a3a;
+        }
+        .hidden {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+        .message-box {
+            display: none;
+            border: 2px solid #ff6f61;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #ffffff;
+            text-align: left;
+            max-width: 400px;
+        }
+        .message-box.active {
+            display: block;
+        }
+        .back-button {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ff6f61;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .back-button.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Азбука Морзе</h1>
+        <h2>SCP SL server</h2>
+    </header>
+    <nav id="nav-buttons">
+        <button onclick="showMessage()">Главная страница</button>
+        <button onclick="showInfo()">Инфо</button>
+        <button onclick="showServer()">Сервер</button>
+    </nav>
+    <div id="message-box" class="message-box">
+        <p>Спасибо, что выбрали наш сервер, нам очень приятно.</p>
+        <p>1. Вы можете узнать о нас, перейдя в Инфо.</p>
+        <p>2. Вы можете о сервере, нажав на кнопку Сервер.</p>
+        <p>Также дискорд канал сервера находится в Инфо!!!</p>
+    </div>
+    <div id="info-box" class="message-box">
+        <p>Добро пожаловать в раздел Инфо!</p>
+        <p>Здесь вы найдете информацию о нашем сервере и полезные ссылки.</p>
+        <p>Дискорд канал: <a href="#" style="color: #ff6f61;">https://discord.gg/kKj8UPmc</a></p>
+        <p>Также в нашем дискорд канале вы найдете все что надо для игры на нашем сервере</p>
+        <P>Порт нашего сервера - 84.237.202.145</P>
+    </div>
+    <div id="server-box" class="message-box">
+        <p>Пока ничего нет.</p>
+    </div>
+    <button id="back-button" class="back-button" onclick="showButtons()">Вернуться</button>
+    <script>
+        function navigate(page) {
+            alert(`Navigating to ${page}`);
+        }
+
+        function showMessage() {
+            const navButtons = document.getElementById('nav-buttons');
+            const messageBox = document.getElementById('message-box');
+            const infoBox = document.getElementById('info-box');
+            const serverBox = document.getElementById('server-box');
+            const backButton = document.getElementById('back-button');
+
+            navButtons.classList.add('hidden');
+            infoBox.classList.remove('active');
+            serverBox.classList.remove('active');
+            setTimeout(() => {
+                messageBox.classList.add('active');
+                backButton.classList.add('active');
+            }, 500);
+        }
+
+        function showInfo() {
+            const navButtons = document.getElementById('nav-buttons');
+            const messageBox = document.getElementById('message-box');
+            const infoBox = document.getElementById('info-box');
+            const serverBox = document.getElementById('server-box');
+            const backButton = document.getElementById('back-button');
+
+            navButtons.classList.add('hidden');
+            messageBox.classList.remove('active');
+            serverBox.classList.remove('active');
+            setTimeout(() => {
+                infoBox.classList.add('active');
+                backButton.classList.add('active');
+            }, 500);
+        }
+
+        function showServer() {
+            const navButtons = document.getElementById('nav-buttons');
+            const messageBox = document.getElementById('message-box');
+            const infoBox = document.getElementById('info-box');
+            const serverBox = document.getElementById('server-box');
+            const backButton = document.getElementById('back-button');
+
+            navButtons.classList.add('hidden');
+            messageBox.classList.remove('active');
+            infoBox.classList.remove('active');
+            setTimeout(() => {
+                serverBox.classList.add('active');
+                backButton.classList.add('active');
+            }, 500);
+        }
+
+        function showButtons() {
+            const navButtons = document.getElementById('nav-buttons');
+            const messageBox = document.getElementById('message-box');
+            const infoBox = document.getElementById('info-box');
+            const serverBox = document.getElementById('server-box');
+            const backButton = document.getElementById('back-button');
+
+            messageBox.classList.remove('active');
+            infoBox.classList.remove('active');
+            serverBox.classList.remove('active');
+            backButton.classList.remove('active');
+            setTimeout(() => {
+                navButtons.classList.remove('hidden');
+            }, 500);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .buttons-container {
+            margin-top: 50px;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+        .info-box {
+            display: none;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #000;
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+            background-color: #f9f9f9;
+        }
+        .info-box p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons-container" id="buttonsContainer">
+        <button onclick="showInfo()">Инфо</button>
+        <button>Кнопка 2</button>
+        <button>Кнопка 3</button>
+    </div>
+    <div class="info-box" id="infoBox">
+        <p>Тут написанно все про нас:</p>
+        <p>1. Порт нашего сервера - 84.237.202.145</p>
+        <p>2. Название нашего сервера - RUS Азбука Морзе - (NO RULES)</p>
+        <p>3. Ссылка на дискорд канал нашего сервера - <a href="https://discord.gg/kKj8UPmc" target="_blank">https://discord.gg/kKj8UPmc</a></p>
+        <p>4. Правила вы можете найти в дискорд канале</p>
+    </div>
+
+    <script>
+        function showInfo() {
+            const buttonsContainer = document.getElementById('buttonsContainer');
+            const infoBox = document.getElementById('infoBox');
+
+            buttonsContainer.style.transform = 'translateY(-100%)';
+            buttonsContainer.style.opacity = '0';
+
+            setTimeout(() => {
+                buttonsContainer.style.display = 'none';
+                infoBox.style.display = 'block';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
